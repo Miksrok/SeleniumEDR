@@ -6,11 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ua.gov.nais.model.Fop;
 
 public class DocumentPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
+    private Fop person;
 
     @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/person-options/form/div[2]/button")
     private WebElement nextButton;
@@ -22,22 +24,42 @@ public class DocumentPage {
     @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[1]/div/div[2]/app-select-field/div/div/select")
     private WebElement claimantList;
 
-    @FindBy (xpath = "//*[@id=\"collapseExample\"]/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[1]/div/div[2]/app-select-field/div/div/select/option[2]")
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[1]/div/div[2]/app-select-field/div/div/select/option[2]")
     private WebElement fo;
 
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[2]/div/div[1]/app-input-field/div/div/input")
     private WebElement surnameField;
 
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[2]/div/div[2]/app-input-field/div/div/input")
     private WebElement nameField;
 
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[1]/app-select-field/div/div/select")
     private WebElement personDocumentList;
 
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[1]/app-select-field/div/div/select/option[2]")
     private WebElement personDocumentName;
 
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[2]/app-input-field/div/div/input")
+    private WebElement personDocumentNumber;
+
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[4]/app-date-picker/div/div/input")
     private WebElement personDocumentDate;
 
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[6]/app-input-field/div/div/input")
     private WebElement personDocumentOrganization;
 
-    
+    //======================================
+
+    @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/app-collapse[2]/button")
+    private WebElement aboutRibbon;
+
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-main-info/api-dynamic-form-builder/div/form/div[1]/div/div[4]/app-date-picker/div/div/input")
+    private WebElement dateOfBirthday;
+
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-main-info/api-dynamic-form-builder/div/form/div[1]/div/div[6]/app-input-field/div/div/input")
+    private WebElement personCode;
+
+
 
     //=======================================
     @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/app-collapse[3]/button")
@@ -81,6 +103,22 @@ public class DocumentPage {
         }
         claimantList.click();
         fo.click();
+
+        person = new Fop();
+        surnameField.sendKeys(person.getSurname());
+        nameField.sendKeys(person.getName());
+
+        personDocumentList.click();
+        personDocumentName.click();
+        personDocumentNumber.sendKeys(person.getNumber());
+        personDocumentDate.sendKeys("11.11.2011");
+        personDocumentOrganization.sendKeys(person.getOrganization());
+
+        //====================================
+
+        aboutRibbon.click();
+        dateOfBirthday.sendKeys(person.getBirthday());
+        personCode.sendKeys(person.getCode());
 
         //====================================
         try {
