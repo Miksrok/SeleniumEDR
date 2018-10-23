@@ -2,10 +2,7 @@ package ua.gov.nais.testa;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.gov.nais.pages.AdressModalPage;
-import ua.gov.nais.pages.DocumentPage;
-import ua.gov.nais.pages.MainGridPage;
-import ua.gov.nais.pages.MainKeyModalPage;
+import ua.gov.nais.pages.*;
 
 public class LoginTest extends BaseTestClass{
 
@@ -24,6 +21,8 @@ public class LoginTest extends BaseTestClass{
         dp.lastStep();
         MainKeyModalPage keyModalPage = new MainKeyModalPage(driver);
         keyModalPage.enterKeyPassword();
+        RegistrationCard registrationCard = new RegistrationCard(driver);
+        registrationCard.selectKved();
     }
 
 }
