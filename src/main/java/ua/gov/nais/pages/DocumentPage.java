@@ -59,7 +59,10 @@ public class DocumentPage {
     @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-main-info/api-dynamic-form-builder/div/form/div[1]/div/div[6]/app-input-field/div/div/input")
     private WebElement personCode;
 
+    //=======================================
 
+    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-main-info/api-dynamic-form-builder/div/form/div[2]/div/div/app-person-address/div/div/div/button")
+    private WebElement openAdressModalPage;
 
     //=======================================
     @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/app-collapse[3]/button")
@@ -86,6 +89,16 @@ public class DocumentPage {
     @FindBy (xpath = "//span[text() = 'Файл успішно завантажено']")
     private WebElement notification;
 
+    //========================================
+
+    @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/div/div[1]/presubmit-options/form/div/app-checkbox[2]/div/label/input")
+    private WebElement confirmationBox;
+
+    @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/div/div[1]/presubmit-options/form/div/app-checkbox[1]/div/label/input")
+    private WebElement goToRegCard;
+
+    @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/div/div[2]/button")
+    private WebElement confirm;
 
     public DocumentPage(WebDriver driver) {
         this.driver = driver;
@@ -121,6 +134,12 @@ public class DocumentPage {
         personCode.sendKeys(person.getCode());
 
         //====================================
+
+        openAdressModalPage.click();
+
+        //====================================
+    }
+    public void addDoc(){
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -133,7 +152,12 @@ public class DocumentPage {
         documentDate.sendKeys("11.11.2012");
         addDocumentButton.click();
         uploadFile.sendKeys("D://statut_TOV.pdf");
+    }
 
+    public void lastStep(){
+        confirmationBox.click();
+        goToRegCard.click();
+        confirm.click();
     }
     public boolean isUpload(){
          return wait.until(ExpectedConditions.textToBePresentInElement(notification, "Файл успішно завантажено"));
