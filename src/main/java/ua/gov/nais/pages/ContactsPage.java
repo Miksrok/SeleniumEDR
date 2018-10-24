@@ -15,4 +15,8 @@ public class ContactsPage {
         PageFactory.initElements(driver, this);
     }
 
+    public void enterPhoneNumber(){
+        phoneNumber.sendKeys("");
+    }
+
 }
