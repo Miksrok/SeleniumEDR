@@ -106,7 +106,7 @@ public class DocumentPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickDocuments(){
+    public String clickDocuments(){
         nextButton.click();
         claimantButton.click();
         try {
@@ -136,7 +136,8 @@ public class DocumentPage {
         //====================================
 
         openAdressModalPage.click();
-
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        return person.getCode();
         //====================================
     }
     public void addDoc(){
