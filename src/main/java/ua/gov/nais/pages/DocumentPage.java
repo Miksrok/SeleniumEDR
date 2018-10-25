@@ -24,7 +24,7 @@ public class DocumentPage {
     @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[1]/div/div[2]/app-select-field/div/div/select")
     private WebElement claimantList;
 
-    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[1]/div/div[2]/app-select-field/div/div/select/option[2]")
+    @FindBy (xpath = "//option[text() = 'Фізична особа']")
     private WebElement fo;
 
     @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[2]/div/div[1]/app-input-field/div/div/input")
@@ -36,7 +36,7 @@ public class DocumentPage {
     @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[1]/app-select-field/div/div/select")
     private WebElement personDocumentList;
 
-    @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[1]/app-select-field/div/div/select/option[2]")
+    @FindBy (xpath = ("//option[text() = 'Паспорт громадянина України']"))
     private WebElement personDocumentName;
 
     @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[2]/app-input-field/div/div/input")
