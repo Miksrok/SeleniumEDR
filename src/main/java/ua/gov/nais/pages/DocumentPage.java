@@ -17,7 +17,7 @@ public class DocumentPage {
     @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/person-options/form/div[2]/button")
     private WebElement nextButton;
 
-    //======================================
+    //======================================About claimant block
     @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/app-collapse[1]/button")
     private WebElement claimantButton;
 
@@ -48,7 +48,7 @@ public class DocumentPage {
     @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-personal-document/api-dynamic-form-builder/div/form/div[3]/div/div[6]/app-input-field/div/div/input")
     private WebElement personDocumentOrganization;
 
-    //======================================
+    //======================================About fop block
 
     @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/app-collapse[2]/button")
     private WebElement aboutRibbon;
@@ -64,7 +64,7 @@ public class DocumentPage {
     @FindBy (xpath = "//*[@id='collapseExample']/div/div/person-main-info/api-dynamic-form-builder/div/form/div[2]/div/div/app-person-address/div/div/div/button")
     private WebElement openAdressModalPage;
 
-    //=======================================
+    //=======================================Documents block
     @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/app-collapse[3]/button")
     private WebElement documentButton;
 
@@ -89,7 +89,7 @@ public class DocumentPage {
     @FindBy (xpath = "//span[text() = 'Файл успішно завантажено']")
     private WebElement notification;
 
-    //========================================
+    //========================================Bottom block
 
     @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/create-phys-person/div/div[2]/div/div[1]/presubmit-options/form/div/app-checkbox[2]/div/label/input")
     private WebElement confirmationBox;

@@ -43,7 +43,8 @@ public class LoginPage {
     }
 
     public void openLoginPage(){
-        driver.get("https://usrb-test.minjust.gov.ua/login");
+        //driver.get("https://usrb-test.minjust.gov.ua/login");
+        driver.get("http://172.22.70.32/login");
     }
     public void typeLogin(){
         loginField.sendKeys("ivanov");

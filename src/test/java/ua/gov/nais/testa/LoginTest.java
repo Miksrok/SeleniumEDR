@@ -23,6 +23,32 @@ public class LoginTest extends BaseTestClass{
         keyModalPage.enterKeyPassword();
         RegistrationCard registrationCard = new RegistrationCard(driver);
         registrationCard.selectKved();
+        KvedPage kvedPage = new KvedPage(driver);
+        kvedPage.addKved();
+        registrationCard.selectContacts();
+        ContactsPage contactsPage = new ContactsPage(driver);
+        contactsPage.enterPhoneNumber();
+        registrationCard.accept();
+        keyModalPage.enterKeyPassword();
+
+        /*for (int i = 0; i<=10; i++){
+
+            mgp.clickCreateFopButton();
+            DocumentPage dp1 = new DocumentPage(driver);
+            dp1.clickDocuments();
+            adress.addAdress();
+            dp1.addDoc();
+            Assert.assertTrue(dp1.isUpload());
+            dp1.lastStep();
+            keyModalPage.enterKeyPassword();
+            registrationCard.selectKved();
+            kvedPage.addKved();
+            registrationCard.selectContacts();
+            contactsPage.enterPhoneNumber();
+            registrationCard.accept();
+            keyModalPage.enterKeyPassword();
+        }*/
+
     }
 
 }
