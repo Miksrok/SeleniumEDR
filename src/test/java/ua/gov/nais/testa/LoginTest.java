@@ -24,7 +24,7 @@ public class LoginTest extends BaseTestClass{
         dp.lastStep();
         MainKeyModalPage keyModalPage = new MainKeyModalPage(driver);
         keyModalPage.enterKeyPassword();
-        RegistrationCard registrationCard = new RegistrationCard(driver);
+        RegistrationCardPage registrationCard = new RegistrationCardPage(driver);
         registrationCard.selectKved();
         KvedPage kvedPage = new KvedPage(driver);
         kvedPage.addKved();
@@ -67,9 +67,9 @@ public class LoginTest extends BaseTestClass{
         receptionOfDocumentsAboutSubjectRibbonPage.enterDateOfBirtday(fop.getBirthday());
         receptionOfDocumentsAboutSubjectRibbonPage.enterPhisicalPersonCode(fop.getCode());
         receptionOfDocumentsAboutSubjectRibbonPage.openAdressModalPage();
+
         AdressModalPage adress = new AdressModalPage(driver);
         adress.addAdress();
-        //продолжить с документами32
 
         ReceptionDocumentsSubmitedDocumentsRibbonPage receptionDocumentsSubmitedDocumentsRibbonPage =
                 new ReceptionDocumentsSubmitedDocumentsRibbonPage(driver);
@@ -85,7 +85,21 @@ public class LoginTest extends BaseTestClass{
         receptionOfDocumentsMainPage.checkGoToRegCardBox();
         receptionOfDocumentsMainPage.clickConfirmButton();
 
+        MainKeyModalPage keyModalPage = new MainKeyModalPage(driver);
+        keyModalPage.enterKeyPassword();
 
+        RegistrationCardPage registrationCardPage =
+                new RegistrationCardPage(driver);
+        registrationCardPage.selectKved();
+
+        KvedPage kvedPage = new KvedPage(driver);
+        kvedPage.addKved();
+        registrationCardPage.selectContacts();
+
+        ContactsPage contactsPage = new ContactsPage(driver);
+        contactsPage.enterPhoneNumber();
+        registrationCardPage.accept();
+        keyModalPage.enterKeyPassword();
 
     }
 

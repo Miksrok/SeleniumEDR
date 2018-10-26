@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RegistrationCard {
+public class RegistrationCardPage {
 
         private WebDriver driver;
 
@@ -21,7 +21,7 @@ public class RegistrationCard {
         @FindBy (xpath = "/html/body/app-root/div/content-wrapper/div/div/registration-card/div[2]/div[2]/div[3]/button")
         private WebElement acceptButton;
 
-        public RegistrationCard(WebDriver driver){
+        public RegistrationCardPage(WebDriver driver){
             this.driver = driver;
             PageFactory.initElements(driver, this);
         }
