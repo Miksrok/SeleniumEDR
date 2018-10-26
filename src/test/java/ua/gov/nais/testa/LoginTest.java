@@ -1,5 +1,6 @@
 package ua.gov.nais.testa;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.gov.nais.model.Fop;
 import ua.gov.nais.pages.*;
@@ -44,9 +45,11 @@ public class LoginTest extends BaseTestClass{
         loginPage.typeLogin();
         MainGridPage mgp = new MainGridPage(driver);
         mgp.clickCreateFopButton();
+
         ReceptionOfDocumentsMainPage receptionOfDocumentsMainPage =
                 new ReceptionOfDocumentsMainPage(driver);
         receptionOfDocumentsMainPage.clickNextButton();
+
         ReceptionOfDocumentsClaimantRibbonPage receptionOfDocumentsClaimantRibbonPage =
                 new ReceptionOfDocumentsClaimantRibbonPage(driver);
         receptionOfDocumentsClaimantRibbonPage.openClaimantRibbon();
@@ -57,6 +60,7 @@ public class LoginTest extends BaseTestClass{
         receptionOfDocumentsClaimantRibbonPage.enterClaimantDocumentNumber(fop.getNumber());
         receptionOfDocumentsClaimantRibbonPage.enterClaimantDocumentDate(fop.getDate());
         receptionOfDocumentsClaimantRibbonPage.enterClaimentDocumentOrganization(fop.getOrganization());
+
         ReceptionOfDocumentsAboutSubjectRibbonPage receptionOfDocumentsAboutSubjectRibbonPage =
                 new ReceptionOfDocumentsAboutSubjectRibbonPage(driver);
         receptionOfDocumentsAboutSubjectRibbonPage.openAboutPhisicalPersonRibbon();
@@ -65,7 +69,22 @@ public class LoginTest extends BaseTestClass{
         receptionOfDocumentsAboutSubjectRibbonPage.openAdressModalPage();
         AdressModalPage adress = new AdressModalPage(driver);
         adress.addAdress();
-        //продолжить с документами
+        //продолжить с документами32
+
+        ReceptionDocumentsSubmitedDocumentsRibbonPage receptionDocumentsSubmitedDocumentsRibbonPage =
+                new ReceptionDocumentsSubmitedDocumentsRibbonPage(driver);
+        receptionDocumentsSubmitedDocumentsRibbonPage.openSubmitedDocumentsRibbon();
+        receptionDocumentsSubmitedDocumentsRibbonPage.selectRegistrationCardFromList();
+        receptionDocumentsSubmitedDocumentsRibbonPage.enterDocumentNumber();
+        receptionDocumentsSubmitedDocumentsRibbonPage.enterDocumentDate();
+        receptionDocumentsSubmitedDocumentsRibbonPage.addDocument();
+        receptionDocumentsSubmitedDocumentsRibbonPage.uploadFile();
+        Assert.assertTrue(receptionDocumentsSubmitedDocumentsRibbonPage.isUpload());
+
+        receptionOfDocumentsMainPage.checkConfirmationBox();
+        receptionOfDocumentsMainPage.checkGoToRegCardBox();
+        receptionOfDocumentsMainPage.clickConfirmButton();
+
 
 
     }

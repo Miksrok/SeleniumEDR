@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ReceptionOfDocumentsSubmitedDocumentsRibbonPage {
+public class ReceptionDocumentsSubmitedDocumentsRibbonPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -46,7 +46,7 @@ public class ReceptionOfDocumentsSubmitedDocumentsRibbonPage {
     /*
     Constructor
      */
-    public ReceptionOfDocumentsSubmitedDocumentsRibbonPage(WebDriver driver){
+    public ReceptionDocumentsSubmitedDocumentsRibbonPage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, 30);
         PageFactory.initElements(driver, this);
